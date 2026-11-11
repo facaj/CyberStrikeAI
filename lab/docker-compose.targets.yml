@@ -1,0 +1,17 @@
+# Alvos vulneráveis para o laboratório. Expostos SOMENTE em 127.0.0.1.
+# Subir:   docker compose -f lab/docker-compose.targets.yml up -d
+# Derrubar: docker compose -f lab/docker-compose.targets.yml down
+services:
+  dvwa:
+    image: vulnerables/web-dvwa:latest
+    container_name: lab-dvwa
+    ports:
+      - "127.0.0.1:8880:80"
+    restart: unless-stopped
+
+  juice-shop:
+    image: bkimminich/juice-shop:latest
+    container_name: lab-juice-shop
+    ports:
+      - "127.0.0.1:3000:3000"
+    restart: unless-stopped
